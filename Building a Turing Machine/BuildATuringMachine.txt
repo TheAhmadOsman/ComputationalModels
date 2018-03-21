@@ -1,0 +1,30 @@
+; Ahmad M. Osman
+; Building a Turing machine that accepts a^n b^n c^n. Assuming that the string end is delimited by $.
+
+; State 0: read the leftmost symbol
+0 a 1 r a
+0 2 2 r d
+
+; State a
+a b 2 r b
+a a a r a
+a 2 2 r a
+
+; State b
+b b b r b
+b 3 3 r b
+b c 3 l c
+
+; State c
+c 3 3 l c
+c 2 2 l c
+c b b l c
+c a a l c
+c 1 1 r 0
+
+; State d: represents '$'
+d 2 2 r d
+d 3 3 r d
+d $ $ r accept
+accept * : r accept2
+accept2 * ) * halt-accept

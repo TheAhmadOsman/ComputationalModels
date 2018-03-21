@@ -1,0 +1,5 @@
+#!/bin/bash
+python3 ahmad-main.py > sudoku.dimacs
+./minisat sudoku.dimacs sudoku.sln
+cat sudoku.sln | python3 displaysolution.py
+cat sudoku.sln | python3 displaysolution.py > solved.txt
